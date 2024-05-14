@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C++ Technical Documentation</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <nav id="navbar">
+      <header>
+        <h1>C++ Documentation</h1>
+      </header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Semantics_and_Code_Structure">Semantics and Code Structure</a></li>
+        <li><a class="nav-link" href="#Variables">Variables</a></li>
+        <li><a class="nav-link" href="#Conditionals_and_Flow_Control">Conditionals and Flow Control</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#Arrays">Arrays</a></li>
+        <li><a class="nav-link" href="#Classes">Classes</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>
+          Introduction
+        </header>
+        <p>
+          C++ is an object-oriented programming language that is used for software development.  C++ utilizes functions, classes, and inheritance to create object-oriented code.  C++ has a large standard library.  
+        </p>
+      </section>
+      <section class="main-section" id="Semantics_and_Code_Structure">
+        <header >
+          Semantics and Code Structure
+        </header>
+        <p>
+          C++ follows a standard flow of code, where certain items are to be placed at specific locations.  Bellow is an example of a Hello World program in C++.  
+        </p>
+        <code>
+          #include &lt;iostream&gt;<br>
+          int main()<br>
+          {<br>
+            &emsp;std::cout &lt;&lt; "Hello World!";<br>
+          }
+        </code>
+        <p>
+          The first line is used to tell the compiler that the program will need to use the Input/Output stream standard library.  The next line is a function declaration.  Here the "main" function is being declared.  The main function is required in every C++ program as that is where the program starts executing.  Following the opeing and closing curly braces "{}" is the body of the function.  Here we are stating to send the string "Hello World!" to the cout function in the iostream standard library.  The cout function is used to print data to the console.  
+        </p>
+      </section>
+      <section class="main-section" id="Variables">
+        <header>
+          Variables
+        </header>
+        <p>
+          Variables are used to store data via a name in the program.  There are many types of variables. These types are called data types, and each of them have a certain size limit in number bits of data they can hold.  The most common data types are the following.:  
+        </p>
+        <ul>
+          <li>"char" - It is 1 byte (8 bits) in size.  This type is used with characers.  </li>
+          <li>"un/signed char" - This is 1 byte (8 bits), and is used with numbers.  </li>
+          <li>"int" - 2 bytes (16 bits)</li>
+          <li>"long" - 32 bits</li>
+          <li>"bool" - 1 bit (is used to designate true or false).</li>
+          <li>"void" - Is not used for storage, but is usually used with functions that do not return anything.  </li>
+        </ul>
+        <p>
+          For decimal numbers, there are two other data types that are used:
+        </p>
+        <ul>
+          <li>"double" - Max precission of 15-16 significant figures.  </li>
+          <li>"float" - Max precission of 6-7 siginificant figures.  </li>
+        </ul>
+        <p>
+          Note that unlike other programing languages like Java, the strings are not a default data type, and require the use of the string library by putting <code>#include &lt;string&gt;</code> at the begining of the program.  
+        </p>
+        <p>
+          Variables can be declared by first putting the type of the variable followed by the name of the variable.  For example, <code>int a;</code> declares the variable "a", to be an interger.  To set a value to the variable, we do <code>a = 3;</code> and this will set a to the value 3.  
+        </p>
+      </section>
+      <section class="main-section" id="Conditionals_and_Flow_Control">
+        <header>
+          Conditionals and Flow Control
+        </header>
+        <p>
+          Conditionals are used to see if a conditional statment is true or false, and thus accordingly continue executing in a certain maner.  There are 5 major conditional statements used for the flow controll of the program.  
+        </p>
+        <p class="sub-section-header">
+          if, else if, and else:  
+        </p>
+        <p>
+          If one wants a certain portion of code to only be used if a specific condition is met, the if statment can be used.  Note that for any conditional statements, where the command(s) to be executed if a specific conditon is met, is longer than one line, then it must be placed inside curly braces "{}".  For example, if we wanted to print 3 if a is equal to 3 we would do the following:  <br>
+          <code>
+            if(a == 3)<br>
+            &emsp;std::cout &lt;&lt; "3";<br>
+          </code>
+          What if one wanted to print no only if the above statement is not true.  In that situation we would use the else statement.  For example:  <br>
+          <code>
+            if(a == 3)<br>
+            &emsp;std::cout &lt;&lt; "3";<br>
+            else<br>
+            &emsp;std::cout &lt;&lt; "No";<br>
+          </code>
+          If one wanted to also print "negative" only if the variable is set to a negative number, in the above example we would then use the "else if" as shown bellow:  <br>
+          <code>
+            if(a ==3)<br>
+            &emsp;std::cout &lt;&lt; "3";<br>
+            else if(a &lt; 0)<br>
+            &emsp;std::cout &lt;&lt; "Negative";<br>
+            else<br>
+            &emsp;std::cout &lt;&lt; "No";<br>
+          </code>
+        </p>
+        <p class="sub-section-header">
+          while and do while loops:  
+        </p>
+        <p>
+          There are two types of while loops in C++.  While loops in general are used for tasks that must be done repetitively.  For example, lets says there is an <code>int b = 5;</code> and someone wanted to subtract 1 from it until it reaches 0, and print the value of b at each repitition.  This can be done by the folloing method:  <br>
+          <code>
+            while(b != 0)<br>
+            {<br>
+            &emsp;std::cout &lt;&lt; b;<br>
+            &emsp;b--;<br>
+            }<br>
+          </code>
+          This can be done also via a do while loop.  <br>
+          <code>
+            do<br>
+            {<br>
+            &emsp;std::cout &lt;&lt; b;<br>
+            &emsp;b--;<br>
+            } while(b != 0);
+          </code>
+        </p>
+        <p class="sub-section-header">
+          for loops:  
+        </p>
+        <p>
+          Unlike while loops, for loops can combine repetitive increments, as well as declaring an incremental variable with a scope on in the loop, and a conditional of when to stop the loop.  For loops can be used for anything that requires looping, but is seen a lot when c++ vectors or arrays are used.  For example, if one wanted to create a interative value of b, and wanted to print the value of b each time it is subtracted until it equalls a, one can do the following:  <br>
+          <code>
+            for(int b = 5; b != a; b--)<br>
+            {<br>
+            &emsp;std::cout &lt;&lt; b;<br>
+            }
+          </code>
+        </p>
+        <p class="sub-section-header">
+          switch statements:  
+        </p>
+        <p>
+          C++ switch statements are similar to if statements, but utilise a variable to determine which case statement to execute.  This is helpful if there are lots of possiblities, where using multiple else-if statements would make the code too cluttered.  Unlike others, the code inside each case does not need curly braces {} if its more than one line.  Also, a case of default can be used if there is an invalid value for the variable used in the switch.  Default case usually always execute unless a <code>break;</code> is stated in the case, which causes the program to jump of of the witch statement block during execution.  For example, if one wanted to display the name of a month based on a number from 1-12, it can be done the following way:  <br>
+          <code>
+            switch(month)<br>
+            {<br>
+            &emsp;case 1:<br>
+            &emsp;&emsp;std::cout &lt;&lt; "January";<br>
+            &emsp;&emsp;break;<br>
+            &emsp;case 2:<br>
+            &emsp;&emsp;std::cout &lt;&lt; "February";<br>
+            &emsp;&emsp;break;<br>
+            ...<br>
+            &emsp;case 12:<br>
+            &emsp;&emsp;std::cout &lt;&lt; "December";<br>
+            &emsp;&emsp;break;<br>
+            &emsp;default:<br>
+            &emsp;&emsp;std::cout &lt;&lt; "Invalid number for month.  ";<br>
+            }
+          </code>
+        </p>
+      </section>
+      <section class="main-section" id="Functions">
+        <header>
+          Functions
+        </header>
+        <p>
+          Functions in C++ have a specific layout, and placement of the functions must also be taken into account in order to compile and execute.  For example, bellow is the implementation of the "main" function that counts to 10.  <br>
+          <code>
+            int main()<br>
+            {<br>
+            &emsp;for(int i=0; i&lt;11; i++)<br>
+            &emsp;{<br>
+            &emsp;&emsp;std::cout &lt;&lt; i;<br>
+            &emsp;}<br>
+            }<br>
+          </code>
+          The first of the function is the declaration of the function.  The first part of it is the return type of the function.  Here it is "int".  The return type is the data type of the value that is returned to the calling function.  If nothing is to be returned, the return type is then to be set to "void".  After the return type comes the name of the function.  The name of the function is used by another function that wants to call the function.  After the function name comes a parenthesis "()".  Items in the parenthesis are called parameters.  Parameters are variables or pointers that are passed to the function.  It is required to indicate the type of the variable or pointer type that is being passed to the parameter.  For example, if a function was to have a parameter consisting of and interger and a pointer to a bool, the function would be declared as follows:  <br>
+          <code>
+            int main(int a, bool* b){...}
+          </code>
+        </p>
+        <p>
+          In C++, functions must be implmented before they are called, otherwise there will be a compilation error.  Having multiple functions for different tasks the program must do, makes it easier to read and understand the code.  It also helps when trouble shooting the code, and is also an important aspect when it comes to object-oriented programming.  For example, if one wanted to create a basic calculator program, the following would be the structure of the function layout of the program:  <br>
+          <code>
+            int add(int a, int b){...}<br>
+            int subtract(int a, int b){...}<br>
+            int multiply(int a, int b){...}<br>
+            double divide(int a, int b){...}<br>
+            int main(){...}<br>
+          </code>
+        </p>
+      </section>
+      <section class="main-section" id="Arrays">
+        <header>
+          Arrays
+        </header>
+        <p>
+          Arrays are like lists that can contain multiple values of the same data type.  However, the size of the array is fixed, and can't be increased.  There may be fewer elements than the size of the array, but the rest of the elements will be set to 0 by default.  The following is an example of and int array of size 7 being created with 3 predefined values:  <br>
+          <code>
+            int a[7] = {6, 18, 1};<br>
+          </code>
+          Note that the other 4 elements are implicitly set to 0.  Also note that the index of the array starts at 0 rather than 1.  Thus the last index of the array a would be 6.  
+        </p>
+        <p>
+          To add or change the value of an element in an array, one can do the following:  <br>
+          <code>
+            a[3] = 10;<br>
+          </code>
+          To set another vairable for example an integer b, to a value in the array, this can be done by:  <br>
+          <code>
+            b = a[3];<br>
+          </code>
+          This sets the value of b to 10.  Knowing this, it is possible to iterate over an array, and display its values by doing the following:  <br>
+          <code>
+            for(int index = 0; index &lt; 7; index++)<br>
+            {<br>
+            &emsp;std::cout &lt;&lt; a[index];<br>
+            }
+          </code>
+        </p>
+      </section>
+      <section class="main-section" id="Classes">
+        <header>
+          Classes
+        </header>
+        <p>
+          The most important part of any object oriented programming language is the use of classes.  A class is like a blueprint to create an object of of a specific type.  For example, one can create a class called "Organism".  This organism class can have a name and age.  For example:  <br>
+          <code>
+            class Organism<br>
+            {<br>
+            &emsp;std::string name;<br>
+            &emsp;int age;<br>
+            &emsp;public:<br>
+            &emsp;&emsp;Organism(std::string name, int age);<br>
+            &emsp;&emsp;void displayInfo();<br>
+            }<br>
+            Organism::Organism(std::string name, int age)<br>
+            {<br>
+            &emsp;this->name = name;<br>
+            &emsp;this->age = age;<br>
+            }<br>
+            void Organism::displayInfo()<br>
+            {<br>
+            &emsp;std::cout &lt;&lt; "Name: " &lt;&lt; name &lt;&lt; " Age: " &lt;&lt; age;<br>
+            }<br>
+          </code>
+          The first part is the declaration of the class.  What follows the "class" keyword is the name of the class.  The next part is the stating the private class variables.  These variables are only accessable by any function that is part of the class.  The next part is the public class variables as well as any class functions that are designated to be accessable to functions outsie of the class.  The first public function in the example above is called the constructor.  This type of function is used to initialize and create the class.  
+        </p>
+        <p>
+          The public functions of the class are implmented in specific manner.  This is done by <code>name of class::function name</code>.  
+        </p>
+        <p>
+          To create an object of the class and print its info, one can do the following:  <br>
+          <code>
+            Organism organ("Human", 20);<br>
+            organ.displayInfo();<br>
+          </code>
+          Here "organ" is a variable of the type Organism.  In the first line the Organism constructor is being utilized to create a instance of the Organim class, and set the values of the private variables.  The second line is how to access the displayInfo function of the class.  To access functions in a class after setting the variable to the type of the class, it is done by <code>variable.functionName()</code>.  
+        </p>
+      </section>
+    </main>
+    <footer>
+      Amol Soneji
+    </footer>
+  </body>
+</html>
